@@ -1,0 +1,10 @@
+# Fdb version 3
+["pdflatex"] 1427050494 "chapter1.tex" "chapter1.pdf" "chapter1" 1427050494
+  "/usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf" 1418473959 31908 9e60cc122a23ef93121ea6e29902081d ""
+  "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1421681540 3847283 c231c55bcd3060e9f37b978a4748ca24 ""
+  "/usr/local/texlive/2014/texmf.cnf" 1409016898 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "chapter1.aux" 1427050494 8 a94a2480d3289e625eea47cd1b285758 ""
+  "chapter1.tex" 1427050493 1236 49357fedfe8f2750c654d2633f61ee5c ""
+  (generated)
+  "chapter1.pdf"
+  "chapter1.log"

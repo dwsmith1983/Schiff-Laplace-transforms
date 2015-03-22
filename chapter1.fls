@@ -1,0 +1,6 @@
+PWD /home/dustin/Documents/School/SelfTaught/LaplaceTransform-Schiff
+INPUT /usr/local/texlive/2014/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT chapter1.tex
+OUTPUT chapter1.log

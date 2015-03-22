@@ -1,0 +1,154 @@
+\chapter{Basic Principles}
+
+\section{The Laplace Transform}
+
+\begin{exercise}
+\item
+  From the definition of the Laplace transform compute
+  \(\mathcal{L}\{f(t)\}(s)\)
+  for
+  \begin{exercise}[label = (\alph*), ref = \arabic{exercisei} (\alph*)]
+  \item
+    \(f(t) = 4t\)
+    \par\smallskip
+    The Laplace transform is defined as
+    \(\mathcal{L}\{f(t)\}(s) = \int_0^{\infty}f(t)e^{-st}dt\).
+    Using the definition, we have
+    \[
+    \mathcal{L}\{4t\}(s) = \int_0^{\infty}4te^{-st}dt =
+    4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
+    \]
+    We can now use integration by parts or we may notice that
+    \(-\frac{\partial}{\partial s}e^{-st} = te^{-st}\).
+    Note that \(t\) and \(e^{-st}\) are entire functions in both the variable
+    \(s\) and \(t\); that is, \(t\) and \(e^{-st}\) can be represented by a
+    power series that converges everywhere in the complex plane with an
+    infinite radius of convergence.
+    In order to justify differentiation under the integral sign, the following
+    theorem must be satisfied.
+    \par\smallskip
+    \textbf{Theorem:} Let \(f(s,t)\) be a function such that both \(f(s,t)\)
+    and its partial derivatives are continuous in \(s\) and \(t\) in some
+    region of the \((s,t)\)-plane, including \(a(s)\leq t\leq b(s)\),
+    \(s_0\leq s\leq s_1\).
+    Also suppose that the functions \(a(s)\) and \(b(s)\) are both continuous
+    and both have continuous derivatives for \(s_0\leq s\leq s_1\).
+    Then for \(s_0\leq s\leq s_1\)
+    \[
+    \frac{d}{ds}\int_{a(s)}^{b(s)}f(s, t)dt = f(s, b(s))b'(s) - f(s,(a(s))a'(s)
+    + \int_{a(s)}^{b(s)}f_s(s, t)dt.
+    \]
+    Since \(f(s,t) = te^{-st}\) which is the product of two entire functions
+    so is entire and \(t,e^{-st}\in C^{\infty}\), the theorem is satisfied.
+    Therefore, we can write
+    \begin{align*}
+      4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
+      & = -4\frac{d}{ds}\lim_{\tau\to\infty}\int_0^{\tau}e^{-st}dt\\
+      & = 4\frac{d}{ds}\lim_{\tau\to\infty}\frac{e^{-st}}{s}\Bigr|_0^{\tau}\\
+      & = 4\frac{d}{ds}\lim_{\tau\to\infty}
+        \Bigl(\frac{e^{-s\tau} - 1}{s}\Bigr)\\
+      & = \frac{d}{ds}\frac{-4}{s}\\
+      \mathcal{L}\{4t\}(s) & = \frac{4}{s^2}
+    \end{align*}
+  \item
+    \(f(t) = e^{2t}\)
+    \par\smallskip
+    For brevity, I am going to drop \(\lim_{\tau\to\infty}\int_0^{\tau}\) and
+    just write \(\int_0^{\infty}\).
+    \[
+    \mathcal{L}\{e^{2t}\}(s) = \int_0^{\infty}e^{t(2 - s)}dt =
+    \frac{e^{t(2 - s)}}{2 - s}\biggr|_0^{\infty} = \frac{1}{s - 2}
+    \]
+    A justifiable question would be why don't we have \(\infty\) since
+    \(\lim_{t\to\infty}e^{t(2 - s)} = \infty\).
+    If this was the case, we would have a divergent integral.
+    In order for our integral to converge, we have to mind the exponential
+    term.
+    Let \(s = \sigma + i\omega\).
+    Then \(\exp[2t - \sigma]\exp[-i\omega]\).
+    \[
+    \biggl\lvert\int_0^{\infty}\exp[(2 - \sigma)t]\exp[-it\omega]dt\biggr\rvert
+    \leq\int_0^{\infty}\bigl\lvert\exp[(2 - \sigma)t]\bigr\rvert
+    \bigl\lvert\exp[-it\omega]\bigr\rvert dt
+    \]
+    By Euler's formula, \(\exp[-it\omega] = \cos(t\omega) - i\sin(t\omega)\) so
+    \(\lvert e^{-i\omega}\rvert =
+    \sqrt{\cos^2(t\omega) + \sin^2(t\omega)} = 1\).
+    Thus, we have
+    \[
+    \int_0^{\infty}\exp[t(2 - \sigma)]dt
+    \]
+    which converges when \(t(2 - \sigma) < 0\iff 2 < \sigma = \Re\{s\}\).
+    Therefore, since \(t(2 - \sigma) < 0\), we are justified in writing
+    \(-t(\sigma - 2)\) since \(\sigma - 2 > 0\).
+    We then have \(\mathcal{L}\{e^{2t}\}(s) = \frac{1}{s - 2}\).
+  \item
+    \label{1c}
+    \(f(t) = 2\cos(3t)\)
+    \par\smallskip
+    For this problem, we will need to use integration by parts twice.
+    Let \(u = e^{-st}\) and \(dv = \cos(3t)dt\).
+    Then \(du = -se^{-st}\) and \(v = \sin(3t)/3\)
+    \begin{align*}
+      \mathcal{L}\{2\cos(3t)\}(s)
+      & = 2\int_0^{\infty}\cos(3t)e^{-st}dt\\
+      & = \cancelto{0}{\frac{2e^{-st}\sin(3t)}{3}\biggl|_0^{\infty}} +
+        \frac{2s}{3}\int_0^{\infty}\sin(3t)e^{-st}dt\\
+      \intertext{For the second integration by parts, \(u\) and \(du\) will
+      remain the same but \(dv = \sin(3t)dt\) so \(v = -\cos(3t)/3\).}
+      & = \frac{2s}{3}\Biggl[\frac{-e^{-st}\cos(3t)}{3}\biggl|_0^{\infty} -
+        \frac{s}{3}\int_0^{\infty}\cos(3t)e^{-st}dt\Biggr]\\
+      (1 + s^2/9)2\int_0^{\infty}\cos(3t)e^{-st}dt & = \frac{2s}{9}\\
+      \mathcal{L}\{2\cos(3t)\}(s) & = \frac{2s}{s^2 + 9}
+    \end{align*}
+  \item
+    \(f(t) = 1 - \cos(\omega t)\)
+    \par\smallskip
+    By \cref{1c}, we have
+    \[
+    \mathcal{L}\{1 - \cos(\omega t)\}(s) = \int_0^{\infty}e^{-st}dt -
+    \int_0^{\infty}\cos(\omega t)e^{-st}dt =
+    \frac{1}{s} - \frac{s}{s^2 + \omega^2}
+    \]
+  \item
+    \(f(t) = te^{2t}\)
+  \item
+    \(f(t) = e^t\sin(t)\)
+  \item
+    \(f(t) =
+    \begin{cases}
+      1, & t\geq a\\
+      0, & t < 0
+    \end{cases}\)
+  \item
+    \(f(t) =
+    \begin{cases}
+      \sin(\omega t), & 0 < t < \pi/\omega\\
+      0, & \pi/\omega\leq t
+    \end{cases}\)
+  \item
+    \(f(t) =
+    \begin{cases}
+      2, & t\leq 1\\
+      e^t, & t > 1
+    \end{cases}\)
+  \end{exercise}
+\item
+  Compute the Laplace transform of the function \(f(t)\) whose graph is given
+  in \cref{ch1sec1}.
+  \begin{figure}[H]
+    \centering
+    \subcaptionbox{}{
+      \includestandalone[width = 3in, mode = image]{Tikz/ch1sec1prob2a}}
+    \qquad
+    \subcaptionbox{}{
+      \includestandalone[width = 3in, mode = image]{Tikz/ch1sec1prob2b}}
+    \caption{Plots of \(f(t)\) for problem two.}
+    \label{ch1sec1}
+  \end{figure}
+\end{exercise}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
