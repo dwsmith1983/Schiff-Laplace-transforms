@@ -15,7 +15,7 @@
 %
 \usepackage{mathtools}%  http://ctan.org/pkg/mathtools
 \usepackage{xcolor}%  http://ctan.org/pkg/xcolor
-\usepackage[makeroom]{cancel}%
+\usepackage{cancel}%
 \usepackage{amssymb}%  http://ctan.org/pkg/amssymb
 \usepackage{float}%  http://ctan.org/pkg/float
 \usepackage{standalone}%
@@ -70,3 +70,17 @@
 \Crefname{exercisei}{Exercise}{exercise}
 \crefname{exerciseii}{exercise}{exercise}
 \Crefname{exerciseii}{Exercise}{exercise}
+% Tikz version of cancel
+\usepackage{tikz}
+\usepackage{relsize}
+\usetikzlibrary{calc}
+\newcommand\canceltoSwNe[2]{%
+  \begin{tikzpicture}[baseline = (B.base)]
+    \node[anchor = center, inner sep = 0pt] (B) {#1};
+    \draw[arrows = {}-{latex}]%
+    ($(B.south west)+(-1pt, -1pt)$) -- ($(B.north east)+(+4pt, +1pt)$)%
+    node [anchor = south west, xshift = +1pt, yshift = -1pt,%
+    inner sep = 0pt]%
+    {\smaller\smaller{#2}};
+  \end{tikzpicture}%
+}

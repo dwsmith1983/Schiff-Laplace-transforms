@@ -92,7 +92,8 @@
     \begin{align*}
       \mathcal{L}\{2\cos(3t)\}(s)
       & = 2\int_0^{\infty}\cos(3t)e^{-st}dt\\
-      & = \cancelto{0}{\frac{2e^{-st}\sin(3t)}{3}\biggl|_0^{\infty}} +
+      & = \canceltoSwNe{\(\displaystyle\frac{2e^{-st}\sin(3t)}
+        {3}\biggl|_0^{\infty}\)}{\(0\)} +
         \frac{2s}{3}\int_0^{\infty}\sin(3t)e^{-st}dt\\
       \intertext{For the second integration by parts, \(u\) and \(du\) will
       remain the same but \(dv = \sin(3t)dt\) so \(v = -\cos(3t)/3\).}
@@ -112,40 +113,101 @@
     \]
   \item
     \(f(t) = te^{2t}\)
+    \[
+    \mathcal{L}\{te^{2t}\} = -\frac{\partial }{\partial s}
+    \int_0^{\infty}e^{t(2 - s)}dt = -\frac{d}{ds}\frac{1}{s - 2} =
+    \frac{1}{(s - 2)^2}
+    \]
+    where we require that \(\Re\{s\} > 2\).
   \item
     \(f(t) = e^t\sin(t)\)
+    \par\smallskip
+    Again, we will use integration by parts where \(u = \sin(t)\) and
+    \(dv = e^{t(1 - s)}dt\).
+    \begin{align*}
+      \mathcal{L}\{e^t\sin(t)\}
+      & = \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\\
+      & = \canceltoSwNe{\(\displaystyle\frac{\sin(t)e^{t(1 - s)}}
+        {1 - s}\biggr|_0^{\infty}\)}{\(0\)} +
+        \frac{1}{s - 1}\int_0^{\infty}\cos(t)e^{t(1 - s)}dt\\
+      & = \frac{1}{s - 1}\Biggl[
+        \frac{\cos(t)e^{t(1 - s)}}{1 - s}\biggr|_0^{\infty} - \frac{1}{s - 1}
+        \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\Biggr]\\
+      [1 + 1/(s + 1)^2]\int_0^{\infty}\sin(t)e^{t(1 - s)}dt
+      & = \frac{1}{(s - 1)^2}\\
+      \int_0^{\infty}\sin(t)e^{t(1 - s)}dt & = \frac{1}{(s - 1)^2 + 1}
+    \end{align*}
   \item
     \(f(t) =
     \begin{cases}
       1, & t\geq a\\
-      0, & t < 0
+      0, & t < a
     \end{cases}\)
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^a0\cdot e^{-st}dt +
+                               \int_a^{\infty}e^{-st}dt\\
+                             & = \int_a^{\infty}e^{-st}dt\\
+                             & = \frac{e^{-as}}{s}
+    \end{align*}
   \item
     \(f(t) =
     \begin{cases}
       \sin(\omega t), & 0 < t < \pi/\omega\\
       0, & \pi/\omega\leq t
     \end{cases}\)
+    \par\smallskip
+    This is just another exercise in integration by parts.
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^{\pi/\omega}\sin(t\omega)e^{-st}dt\\
+                             & = \frac{\omega(1 + e^{-s\pi/\omega})}
+                               {s^2 + \omega^2}
+    \end{align*}
   \item
     \(f(t) =
     \begin{cases}
       2, & t\leq 1\\
       e^t, & t > 1
     \end{cases}\)
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^1e^{-st}dt +
+                               \int_1^{\infty}e^{t(1 - s)}dt\\
+                             & = \frac{2(1 - e^{-s})}{s} +
+                               \frac{e^{1 - s}}{s - 1}
+    \end{align*}
+    where we require that \(\Re\{s\} > 1\).
   \end{exercise}
 \item
   Compute the Laplace transform of the function \(f(t)\) whose graph is given
   in \cref{ch1sec1}.
   \begin{figure}[H]
     \centering
-    \subcaptionbox{}{
-      \includestandalone[width = 3in, mode = image]{Tikz/ch1sec1prob2a}}
+    \subcaptionbox{\label{ch1sec1prob2a}}{
+      \includestandalone[width = 2in, mode = image]{Tikz/ch1sec1prob2a}}
     \qquad
-    \subcaptionbox{}{
+    \subcaptionbox{\label{ch1sec1prob2b}}{
       \includestandalone[width = 3in, mode = image]{Tikz/ch1sec1prob2b}}
     \caption{Plots of \(f(t)\) for problem two.}
     \label{ch1sec1}
   \end{figure}
+  The first step to these two problems is to determine the the function
+  \(f(t)\).
+  For \cref{ch1sec1prob2a}, we have
+  \[
+  f(t) =
+  \begin{cases}
+    1 - t, & 0 < t < 1\\
+    0, & t > 1
+  \end{cases}
+  \]
+  and for \cref{ch1sec1prob2b}, we have
+  \[
+  g(t) =
+  \begin{cases}
+    t, & 0 < t < 1\\
+    2 - t, & 1 < t < 2\\
+    0, & t > 2
+  \end{cases}
+  \]
 \end{exercise}
 
 %%% Local Variables:
