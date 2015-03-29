@@ -92,8 +92,8 @@
     \begin{align*}
       \mathcal{L}\{2\cos(3t)\}(s)
       & = 2\int_0^{\infty}\cos(3t)e^{-st}dt\\
-      & = \canceltoSwNe{\(\displaystyle\frac{2e^{-st}\sin(3t)}
-        {3}\biggl|_0^{\infty}\)}{\(0\)} +
+      & = \canceltoSwNe{\[\frac{2e^{-st}\sin(3t)}
+        {3}\biggl|_0^{\infty}\]}{\(0\)} +
         \frac{2s}{3}\int_0^{\infty}\sin(3t)e^{-st}dt\\
       \intertext{For the second integration by parts, \(u\) and \(du\) will
       remain the same but \(dv = \sin(3t)dt\) so \(v = -\cos(3t)/3\).}
@@ -127,8 +127,8 @@
     \begin{align*}
       \mathcal{L}\{e^t\sin(t)\}
       & = \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\\
-      & = \canceltoSwNe{\(\displaystyle\frac{\sin(t)e^{t(1 - s)}}
-        {1 - s}\biggr|_0^{\infty}\)}{\(0\)} +
+      & = \canceltoSwNe{\[\frac{\sin(t)e^{t(1 - s)}}
+        {1 - s}\biggr|_0^{\infty}\]}{\(0\)} +
         \frac{1}{s - 1}\int_0^{\infty}\cos(t)e^{t(1 - s)}dt\\
       & = \frac{1}{s - 1}\Biggl[
         \frac{\cos(t)e^{t(1 - s)}}{1 - s}\biggr|_0^{\infty} - \frac{1}{s - 1}

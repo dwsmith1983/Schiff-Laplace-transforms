@@ -74,11 +74,19 @@
 \usepackage{tikz}
 \usepackage{relsize}
 \usetikzlibrary{calc}
+\tikzset{block/.style = {anchor = center, inner sep = 0pt,
+    execute at begin node = {
+      \begin{varwidth}{0.5\linewidth}},  %% change 0.5 as you wish
+      execute at end node = {
+      \end{varwidth}}
+  }
+}
 \newcommand\canceltoSwNe[2]{%
   \begin{tikzpicture}[baseline = (B.base)]
-    \node[anchor = center, inner sep = 0pt] (B) {#1};
-    \draw[arrows = {}-{latex}]%
-    ($(B.south west)+(-1pt, -1pt)$) -- ($(B.north east)+(+4pt, +1pt)$)%
+    \node[block] (B) {#1};
+    \draw[arrows = {}-{stealth}]%
+    ($(B.south west) + (-0.25pt, -0.25pt)$) --
+    ($(B.north east) + (+4pt, +1pt)$)%
     node [anchor = south west, xshift = +1pt, yshift = -1pt,%
     inner sep = 0pt]%
     {\smaller\smaller{#2}};
