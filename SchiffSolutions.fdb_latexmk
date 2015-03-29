@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1427663434 "SchiffSolutions.tex" "SchiffSolutions.pdf" "SchiffSolutions" 1427663435
-  "./SchiffSolutions.out" 1427663435 184 9aa07e04e65ff76da5d7d26d7accc385 ""
+["pdflatex"] 1427667906 "SchiffSolutions.tex" "SchiffSolutions.pdf" "SchiffSolutions" 1427667907
+  "./SchiffSolutions.out" 1427667907 256 88390bac6abf615cf0bc6ede4e4b790c ""
   "./Tikz/ch1sec1prob2a.pdf" 1427089705 10931 2eb945d87cc99476652eaccd1722d27b ""
   "./Tikz/ch1sec1prob2b.pdf" 1427089705 11071 eeb01fa54357dccb62295f1056161662 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -254,17 +254,17 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1427653517 1640970 6e9d9b9d0fb86fadb6e255a8bafce781 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1425777140 3847282 5c90063c4ac73c17358941fb538ec514 ""
   "/usr/local/texlive/2014/texmf.cnf" 1425777106 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "SchiffSolutions.aux" 1427663435 2076 7a03b675344acf8bd0164238211afcaf ""
-  "SchiffSolutions.out" 1427663435 184 9aa07e04e65ff76da5d7d26d7accc385 ""
+  "SchiffSolutions.aux" 1427667907 2176 840c6513eb0290cd7e7bd6ab621dc2c5 ""
+  "SchiffSolutions.out" 1427667907 256 88390bac6abf615cf0bc6ede4e4b790c ""
   "SchiffSolutions.tex" 1427089812 667 14bb498cd6eb1a3aa5e195463547fea5 ""
-  "SchiffSolutions.toc" 1427663435 221 4629f8e8008d59a97e781ccb252b2c56 ""
+  "SchiffSolutions.toc" 1427667907 303 264c504e6bc5821c51f7abfbd621740b ""
   "Tikz/ch1sec1prob2a.pdf" 1427089705 10931 2eb945d87cc99476652eaccd1722d27b ""
   "Tikz/ch1sec1prob2b.pdf" 1427089705 11071 eeb01fa54357dccb62295f1056161662 ""
-  "chapter1.tex" 1427663432 9198 2db69f5af2f062bfa9ff0bee3c65a2b6 ""
+  "chapter1.tex" 1427667873 9273 39813646e6e72747f99892f64e62f301 ""
   "laplace.sty" 1427656899 3163 1502cdcdd6d73851f3c1c9bd46ce1374 ""
   (generated)
-  "SchiffSolutions.out"
-  "SchiffSolutions.aux"
+  "SchiffSolutions.log"
   "SchiffSolutions.pdf"
   "SchiffSolutions.toc"
-  "SchiffSolutions.log"
+  "SchiffSolutions.aux"
+  "SchiffSolutions.out"
