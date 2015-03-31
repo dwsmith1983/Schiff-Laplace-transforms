@@ -234,6 +234,34 @@ where we require that \(\Re\{s\} > 2\).
   \item
     Show that the Laplace transform \(F(s) = \mathcal{L}\{f(t)\}(s)\) converges
     absolutely (and hence converges) for any \(s\) satisfying \(\Re\{s\} > 0\).
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^{\infty}f(t)e^{-st}dt\eqnumtag
+                               \label{ch1sec2prob1aLT}\\
+      \intertext{In order for the Laplace transform to converge absolutely,
+      we need to show that
+      \(\lvert\int_0^{\infty}f(t)e^{-st}dt\rvert < \infty\).}
+                             & = \biggl\lvert\int_0^{\infty}f(t)e^{-st}dt
+                               \biggr\rvert\\
+                             & \leq M\int_0^{\infty}\lvert e^{-st}\rvert dt\\
+      \intertext{Now, \(s = \sigma + i\omega\) where
+      \(\sigma,\omega\in\mathbb{R}\).
+      Then \(\lvert e^{-st}\rvert = e^{t\sigma}\lvert e^{-it\omega}\rvert\)
+      since
+      \(\lvert e^{-t\sigma}\rvert = \sqrt{e^{t^2\sigma^2}} = e^{t\sigma}\).
+      Recall the trigonometric identity
+      \(e^{i\theta} = \cos(\theta) + i\sin(\theta)\).
+      Then \(\lvert e^{-it\omega}\rvert = \sqrt{\Re\{e^{-it\omega}\}^2 +
+      \Im\{e^{-it\omega}\}^2} = 1\).}
+                             & = M\int_0^{\infty}e^{t\sigma}dt\eqnumtag
+                               \label{ch1sec2prob1a}
+    \end{align*}
+    \Cref{ch1sec2prob1a} converges when \(e^{t\sigma}\) is bounded.
+    That is, \(t\sigma < 0\).
+    From \cref{ch1sec2prob1aLT}, we see that boundedness occurs when
+    \(-st < 0\) so \(st > 0\).
+    Then \(-s < 0 \iff s > 0 \iff \Re\{s\} > 0\) where
+    \(\Re\{s\} = \sigma\) since, by \cref{ch1sec2prob1a}, boundedness was due
+    to \(\sigma\).
   \item
     Show that \(\mathcal{L}\{f(t)\}\) converges uniformly if
     \(\Re\{s\} > x_0 > 0\).
