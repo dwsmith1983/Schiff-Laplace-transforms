@@ -423,14 +423,41 @@ discontinuities.
     \frac{\sinh(t)}{t}, & t\neq 0\\
     1, & t = 0
   \end{cases}\)
+  \par\smallskip
+  This problem is fairly straight forward when we invoke L'H\^{o}pital's rule.
+  \[
+  \lim_{t\to 0^-}\frac{\sinh(t)}{t} = \frac{0}{0}\Rightarrow
+  \lim_{t\to 0^-}\frac{\cosh(t)}{1} = 1 =
+  \lim_{t\to 0^+}\frac{\sinh(t)}{t}
+  \]
+  Additionally, at \(t = 0\), \(i(0) = 1\).
+  Therefore, we have no jump discontinuity at \(t = 0\).
 \item
   \(j(t) = \frac{1}{t}\sinh(1/t)\) for \(t\neq 0\).
+  \par\smallskip
+  Recall that the series expansion of
+  \(\sinh(t) = \sum_{n = 0}^{\infty}\frac{t^{2n + 1}}{(2n + 1)!}\).
+  Then
+  \[
+  j(t) = \frac{1}{t}\sinh(1/t) =
+  \sum_{n = 0}^{\infty}\frac{1}{t^{2n + 2}(2n + 1)!}
+  \]
+  For \(t\) negative or positive and not equal to zero, \(t^{2n + 2} > 0\).
+  Therefore,
+  \[
+  \lim_{t\to 0}\sum_{n = 0}^{\infty}\frac{1}{t^{2n + 2}(2n + 1)!} = \infty.
+  \]
+  We do not have a jump discontinuity at \(t = 0\).
 \item
   \(k(t) =
   \begin{cases}
     \frac{1 - e^{-t}}{t}, & t\neq 0\\
     0, & t = 0
   \end{cases}\)
+  \par\smallskip
+  Again, we will invoke L'H\^{o}pital's rule, and in this case,
+  \(\lim_{t\to 0}k(t) = 1\).
+  At \(t = 0\), \(k(0) = 0\) so we have removable discontinuity at \(t = 0\).
 \item
   \(l(t) =
   \begin{cases}
@@ -438,10 +465,14 @@ discontinuities.
     -1, & (2n + 1)a\leq t < (2n + 2)a
   \end{cases}\)
   for \(a > 0\) and \(n = 0,1,\ldots\).
+  \par\smallskip
 \item
   \(m(t) = \bigl\lfloor\frac{t}{a}\bigr\rfloor\) for \(t\geq 0\), \(a > 0\)
   where \(\lfloor x\rfloor\) is the greatest integer \(\leq x\). 
 \end{exercise}
+
+\section{Exponential Order}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
