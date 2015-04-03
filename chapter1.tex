@@ -15,167 +15,167 @@
     \(\mathcal{L}\{f(t)\}(s) = \int_0^{\infty}f(t)e^{-st}dt\).
     Using the definition, we have
     \[
-  \mathcal{L}\{4t\}(s) = \int_0^{\infty}4te^{-st}dt =
-  4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
-\]
-We can now use integration by parts or we may notice that
-\(-\frac{\partial}{\partial s}e^{-st} = te^{-st}\).
-Note that \(t\) and \(e^{-st}\) are entire functions in both the variable
-\(s\) and \(t\); that is, \(t\) and \(e^{-st}\) can be represented by a
-power series that converges everywhere in the complex plane with an
-infinite radius of convergence.
-In order to justify differentiation under the integral sign, the following
-theorem must be satisfied.
-\par\smallskip
-\textbf{Theorem:} Let \(f(s,t)\) be a function such that both \(f(s,t)\)
-and its partial derivatives are continuous in \(s\) and \(t\) in some
-region of the \((s,t)\)-plane, including \(a(s)\leq t\leq b(s)\),
-\(s_0\leq s\leq s_1\).
-Also suppose that the functions \(a(s)\) and \(b(s)\) are both continuous
-and both have continuous derivatives for \(s_0\leq s\leq s_1\).
-Then for \(s_0\leq s\leq s_1\)
-\[
-  \frac{d}{ds}\int_{a(s)}^{b(s)}f(s, t)dt = f(s, b(s))b'(s) - f(s,(a(s))a'(s)
-  + \int_{a(s)}^{b(s)}f_s(s, t)dt.
-\]
-Since \(f(s,t) = te^{-st}\) which is the product of two entire functions
-so is entire and \(t,e^{-st}\in C^{\infty}\), the theorem is satisfied.
-Therefore, we can write
-\begin{align*}
-  4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
-  & = -4\frac{d}{ds}\lim_{\tau\to\infty}\int_0^{\tau}e^{-st}dt\\
-  & = 4\frac{d}{ds}\lim_{\tau\to\infty}\frac{e^{-st}}{s}\Bigr|_0^{\tau}\\
-  & = 4\frac{d}{ds}\lim_{\tau\to\infty}
-    \Bigl(\frac{e^{-s\tau} - 1}{s}\Bigr)\\
-  & = \frac{d}{ds}\frac{-4}{s}\\
-  \mathcal{L}\{4t\}(s) & = \frac{4}{s^2}
-\end{align*}
-\item
-  \(f(t) = e^{2t}\)
-  \par\smallskip
-  For brevity, I am going to drop \(\lim_{\tau\to\infty}\int_0^{\tau}\) and
-  just write \(\int_0^{\infty}\).
-  \[
-  \mathcal{L}\{e^{2t}\}(s) = \int_0^{\infty}e^{t(2 - s)}dt =
-  \frac{e^{t(2 - s)}}{2 - s}\biggr|_0^{\infty} = \frac{1}{s - 2}
-\]
-A justifiable question would be why don't we have \(\infty\) since
-\(\lim_{t\to\infty}e^{t(2 - s)} = \infty\).
-If this was the case, we would have a divergent integral.
-In order for our integral to converge, we have to mind the exponential
-term.
-Let \(s = \sigma + i\omega\).
-Then \(\exp[2t - \sigma]\exp[-i\omega]\).
-\[
-  \biggl\lvert\int_0^{\infty}\exp[(2 - \sigma)t]\exp[-it\omega]dt\biggr\rvert
-  \leq\int_0^{\infty}\bigl\lvert\exp[(2 - \sigma)t]\bigr\rvert
-  \bigl\lvert\exp[-it\omega]\bigr\rvert dt
-\]
-By Euler's formula, \(\exp[-it\omega] = \cos(t\omega) - i\sin(t\omega)\) so
-\(\lvert e^{-i\omega}\rvert =
-\sqrt{\cos^2(t\omega) + \sin^2(t\omega)} = 1\).
-Thus, we have
-\[
-  \int_0^{\infty}\exp[t(2 - \sigma)]dt
-\]
-which converges when \(t(2 - \sigma) < 0\iff 2 < \sigma = \Re\{s\}\).
-Therefore, since \(t(2 - \sigma) < 0\), we are justified in writing
-\(-t(\sigma - 2)\) since \(\sigma - 2 > 0\).
-We then have \(\mathcal{L}\{e^{2t}\}(s) = \frac{1}{s - 2}\).
-\item
-  \label{1c}
-  \(f(t) = 2\cos(3t)\)
-  \par\smallskip
-  For this problem, we will need to use integration by parts twice.
-  Let \(u = e^{-st}\) and \(dv = \cos(3t)dt\).
-  Then \(du = -se^{-st}\) and \(v = \sin(3t)/3\)
-  \begin{align*}
-    \mathcal{L}\{2\cos(3t)\}(s)
-    & = 2\int_0^{\infty}\cos(3t)e^{-st}dt\\
-    & = \canceltoSwNe{\[\frac{2e^{-st}\sin(3t)}
-      {3}\biggl|_0^{\infty}\]}{\(0\)} +
-      \frac{2s}{3}\int_0^{\infty}\sin(3t)e^{-st}dt\\
-    \intertext{For the second integration by parts, \(u\) and \(du\) will
-    remain the same but \(dv = \sin(3t)dt\) so \(v = -\cos(3t)/3\).}
-    & = \frac{2s}{3}\Biggl[\frac{-e^{-st}\cos(3t)}{3}\biggl|_0^{\infty} -
-      \frac{s}{3}\int_0^{\infty}\cos(3t)e^{-st}dt\Biggr]\\
-    (1 + s^2/9)2\int_0^{\infty}\cos(3t)e^{-st}dt & = \frac{2s}{9}\\
-    \mathcal{L}\{2\cos(3t)\}(s) & = \frac{2s}{s^2 + 9}
-  \end{align*}
-\item
-  \(f(t) = 1 - \cos(\omega t)\)
-  \par\smallskip
-  By \cref{1c}, we have
-  \[
-  \mathcal{L}\{1 - \cos(\omega t)\}(s) = \int_0^{\infty}e^{-st}dt -
-  \int_0^{\infty}\cos(\omega t)e^{-st}dt =
-  \frac{1}{s} - \frac{s}{s^2 + \omega^2}
-\]
-\item
-  \(f(t) = te^{2t}\)
-  \[
-  \mathcal{L}\{te^{2t}\} = -\frac{\partial }{\partial s}
-  \int_0^{\infty}e^{t(2 - s)}dt = -\frac{d}{ds}\frac{1}{s - 2} =
-  \frac{1}{(s - 2)^2}
-\]
-where we require that \(\Re\{s\} > 2\).
-\item
-  \(f(t) = e^t\sin(t)\)
-  \par\smallskip
-  Again, we will use integration by parts where \(u = \sin(t)\) and
-  \(dv = e^{t(1 - s)}dt\).
-  \begin{align*}
-    \mathcal{L}\{e^t\sin(t)\}
-    & = \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\\
-    & = \canceltoSwNe{\[\frac{\sin(t)e^{t(1 - s)}}
-      {1 - s}\biggr|_0^{\infty}\]}{\(0\)} +
-      \frac{1}{s - 1}\int_0^{\infty}\cos(t)e^{t(1 - s)}dt\\
-    & = \frac{1}{s - 1}\Biggl[
-      \frac{\cos(t)e^{t(1 - s)}}{1 - s}\biggr|_0^{\infty} - \frac{1}{s - 1}
-      \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\Biggr]\\
-    [1 + 1/(s + 1)^2]\int_0^{\infty}\sin(t)e^{t(1 - s)}dt
-    & = \frac{1}{(s - 1)^2}\\
-    \int_0^{\infty}\sin(t)e^{t(1 - s)}dt & = \frac{1}{(s - 1)^2 + 1}
-  \end{align*}
-\item
-  \(f(t) =
-  \begin{cases}
-    1, & t\geq a\\
-    0, & t < a
-  \end{cases}\)
-  \begin{align*}
-    \mathcal{L}\{f(t)\}(s) & = \int_0^a0\cdot e^{-st}dt +
-                             \int_a^{\infty}e^{-st}dt\\
-                           & = \int_a^{\infty}e^{-st}dt\\
-                           & = \frac{e^{-as}}{s}
-  \end{align*}
-\item
-  \(f(t) =
-  \begin{cases}
-    \sin(\omega t), & 0 < t < \pi/\omega\\
-    0, & \pi/\omega\leq t
-  \end{cases}\)
-  \par\smallskip
-  This is just another exercise in integration by parts.
-  \begin{align*}
-    \mathcal{L}\{f(t)\}(s) & = \int_0^{\pi/\omega}\sin(t\omega)e^{-st}dt\\
-                           & = \frac{\omega(1 + e^{-s\pi/\omega})}
-                             {s^2 + \omega^2}
-  \end{align*}
-\item
-  \(f(t) =
-  \begin{cases}
-    2, & t\leq 1\\
-    e^t, & t > 1
-  \end{cases}\)
-  \begin{align*}
-    \mathcal{L}\{f(t)\}(s) & = \int_0^1e^{-st}dt +
-                             \int_1^{\infty}e^{t(1 - s)}dt\\
-                           & = \frac{2(1 - e^{-s})}{s} +
-                             \frac{e^{1 - s}}{s - 1}
-  \end{align*}
-  where we require that \(\Re\{s\} > 1\).
-\end{exercise}
+    \mathcal{L}\{4t\}(s) = \int_0^{\infty}4te^{-st}dt =
+    4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
+    \]
+    We can now use integration by parts or we may notice that
+    \(-\frac{\partial}{\partial s}e^{-st} = te^{-st}\).
+    Note that \(t\) and \(e^{-st}\) are entire functions in both the variable
+    \(s\) and \(t\); that is, \(t\) and \(e^{-st}\) can be represented by a
+    power series that converges everywhere in the complex plane with an
+    infinite radius of convergence.
+    In order to justify differentiation under the integral sign, the following
+    theorem must be satisfied.
+    \par\smallskip
+    \textbf{Theorem:} Let \(f(s,t)\) be a function such that both \(f(s,t)\)
+    and its partial derivatives are continuous in \(s\) and \(t\) in some
+    region of the \((s,t)\)-plane, including \(a(s)\leq t\leq b(s)\),
+    \(s_0\leq s\leq s_1\).
+    Also suppose that the functions \(a(s)\) and \(b(s)\) are both continuous
+    and both have continuous derivatives for \(s_0\leq s\leq s_1\).
+    Then for \(s_0\leq s\leq s_1\)
+    \[
+    \frac{d}{ds}\int_{a(s)}^{b(s)}f(s, t)dt = f(s, b(s))b'(s) - f(s,(a(s))a'(s)
+    + \int_{a(s)}^{b(s)}f_s(s, t)dt.
+    \]
+    Since \(f(s,t) = te^{-st}\) which is the product of two entire functions
+    so is entire and \(t,e^{-st}\in C^{\infty}\), the theorem is satisfied.
+    Therefore, we can write
+    \begin{align*}
+      4\lim_{\tau\to\infty}\int_0^{\tau}te^{-st}dt
+      & = -4\frac{d}{ds}\lim_{\tau\to\infty}\int_0^{\tau}e^{-st}dt\\
+      & = 4\frac{d}{ds}\lim_{\tau\to\infty}\frac{e^{-st}}{s}\Bigr|_0^{\tau}\\
+      & = 4\frac{d}{ds}\lim_{\tau\to\infty}
+        \Bigl(\frac{e^{-s\tau} - 1}{s}\Bigr)\\
+      & = \frac{d}{ds}\frac{-4}{s}\\
+      \mathcal{L}\{4t\}(s) & = \frac{4}{s^2}
+    \end{align*}
+  \item
+    \(f(t) = e^{2t}\)
+    \par\smallskip
+    For brevity, I am going to drop \(\lim_{\tau\to\infty}\int_0^{\tau}\) and
+    just write \(\int_0^{\infty}\).
+    \[
+    \mathcal{L}\{e^{2t}\}(s) = \int_0^{\infty}e^{t(2 - s)}dt =
+    \frac{e^{t(2 - s)}}{2 - s}\biggr|_0^{\infty} = \frac{1}{s - 2}
+    \]
+    A justifiable question would be why don't we have \(\infty\) since
+    \(\lim_{t\to\infty}e^{t(2 - s)} = \infty\).
+    If this was the case, we would have a divergent integral.
+    In order for our integral to converge, we have to mind the exponential
+    term.
+    Let \(s = \sigma + i\omega\).
+    Then \(\exp[2t - \sigma]\exp[-i\omega]\).
+    \[
+    \biggl\lvert\int_0^{\infty}\exp[(2 - \sigma)t]\exp[-it\omega]dt\biggr\rvert
+    \leq\int_0^{\infty}\bigl\lvert\exp[(2 - \sigma)t]\bigr\rvert
+    \bigl\lvert\exp[-it\omega]\bigr\rvert dt
+    \]
+    By Euler's formula, \(\exp[-it\omega] = \cos(t\omega) - i\sin(t\omega)\) so
+    \(\lvert e^{-i\omega}\rvert =
+    \sqrt{\cos^2(t\omega) + \sin^2(t\omega)} = 1\).
+    Thus, we have
+    \[
+    \int_0^{\infty}\exp[t(2 - \sigma)]dt
+    \]
+    which converges when \(t(2 - \sigma) < 0\iff 2 < \sigma = \Re\{s\}\).
+    Therefore, since \(t(2 - \sigma) < 0\), we are justified in writing
+    \(-t(\sigma - 2)\) since \(\sigma - 2 > 0\).
+    We then have \(\mathcal{L}\{e^{2t}\}(s) = \frac{1}{s - 2}\).
+  \item
+    \label{ch1sec1prob1c}
+    \(f(t) = 2\cos(3t)\)
+    \par\smallskip
+    For this problem, we will need to use integration by parts twice.
+    Let \(u = e^{-st}\) and \(dv = \cos(3t)dt\).
+    Then \(du = -se^{-st}\) and \(v = \sin(3t)/3\)
+    \begin{align*}
+      \mathcal{L}\{2\cos(3t)\}(s)
+      & = 2\int_0^{\infty}\cos(3t)e^{-st}dt\\
+      & = \canceltoSwNe{\[\frac{2e^{-st}\sin(3t)}
+        {3}\biggl|_0^{\infty}\]}{\(0\)} +
+        \frac{2s}{3}\int_0^{\infty}\sin(3t)e^{-st}dt\\
+      \intertext{For the second integration by parts, \(u\) and \(du\) will
+      remain the same but \(dv = \sin(3t)dt\) so \(v = -\cos(3t)/3\).}
+      & = \frac{2s}{3}\Biggl[\frac{-e^{-st}\cos(3t)}{3}\biggl|_0^{\infty} -
+        \frac{s}{3}\int_0^{\infty}\cos(3t)e^{-st}dt\Biggr]\\
+      (1 + s^2/9)2\int_0^{\infty}\cos(3t)e^{-st}dt & = \frac{2s}{9}\\
+      \mathcal{L}\{2\cos(3t)\}(s) & = \frac{2s}{s^2 + 9}
+    \end{align*}
+  \item
+    \(f(t) = 1 - \cos(\omega t)\)
+    \par\smallskip
+    By \cref{ch1sec1prob1c}, we have
+    \[
+    \mathcal{L}\{1 - \cos(\omega t)\}(s) = \int_0^{\infty}e^{-st}dt -
+    \int_0^{\infty}\cos(\omega t)e^{-st}dt =
+    \frac{1}{s} - \frac{s}{s^2 + \omega^2}
+    \]
+  \item
+    \(f(t) = te^{2t}\)
+    \[
+    \mathcal{L}\{te^{2t}\} = -\frac{\partial }{\partial s}
+    \int_0^{\infty}e^{t(2 - s)}dt = -\frac{d}{ds}\frac{1}{s - 2} =
+    \frac{1}{(s - 2)^2}
+    \]
+    where we require that \(\Re\{s\} > 2\).
+  \item
+    \(f(t) = e^t\sin(t)\)
+    \par\smallskip
+    Again, we will use integration by parts where \(u = \sin(t)\) and
+    \(dv = e^{t(1 - s)}dt\).
+    \begin{align*}
+      \mathcal{L}\{e^t\sin(t)\}
+      & = \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\\
+      & = \canceltoSwNe{\[\frac{\sin(t)e^{t(1 - s)}}
+        {1 - s}\biggr|_0^{\infty}\]}{\(0\)} +
+        \frac{1}{s - 1}\int_0^{\infty}\cos(t)e^{t(1 - s)}dt\\
+      & = \frac{1}{s - 1}\Biggl[
+        \frac{\cos(t)e^{t(1 - s)}}{1 - s}\biggr|_0^{\infty} - \frac{1}{s - 1}
+        \int_0^{\infty}\sin(t)e^{t(1 - s)}dt\Biggr]\\
+      [1 + 1/(s + 1)^2]\int_0^{\infty}\sin(t)e^{t(1 - s)}dt
+      & = \frac{1}{(s - 1)^2}\\
+      \int_0^{\infty}\sin(t)e^{t(1 - s)}dt & = \frac{1}{(s - 1)^2 + 1}
+    \end{align*}
+  \item
+    \(f(t) =
+    \begin{cases}
+      1, & t\geq a\\
+      0, & t < a
+    \end{cases}\)
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^a0\cdot e^{-st}dt +
+                               \int_a^{\infty}e^{-st}dt\\
+                             & = \int_a^{\infty}e^{-st}dt\\
+                             & = \frac{e^{-as}}{s}
+    \end{align*}
+  \item
+    \(f(t) =
+    \begin{cases}
+      \sin(\omega t), & 0 < t < \pi/\omega\\
+      0, & \pi/\omega\leq t
+    \end{cases}\)
+    \par\smallskip
+    This is just another exercise in integration by parts.
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^{\pi/\omega}\sin(t\omega)e^{-st}dt\\
+                             & = \frac{\omega(1 + e^{-s\pi/\omega})}
+                               {s^2 + \omega^2}
+    \end{align*}
+  \item
+    \(f(t) =
+    \begin{cases}
+      2, & t\leq 1\\
+      e^t, & t > 1
+    \end{cases}\)
+    \begin{align*}
+      \mathcal{L}\{f(t)\}(s) & = \int_0^1e^{-st}dt +
+                               \int_1^{\infty}e^{t(1 - s)}dt\\
+                             & = \frac{2(1 - e^{-s})}{s} +
+                               \frac{e^{1 - s}}{s - 1}
+    \end{align*}
+    where we require that \(\Re\{s\} > 1\).
+  \end{exercise}
 \item
   Compute the Laplace transform of the function \(f(t)\) whose graph is given
   in \cref{ch1sec1}.
@@ -230,7 +230,7 @@ where we require that \(\Re\{s\} > 2\).
 \item
   Suppose that \(f\) is a continuous function on \([0,\infty)\) and
   \(\lvert f(t)\rvert\leq M < \infty\) for \(0\leq t < \infty\).
-  \begin{exercise}[label = (\alph*)]
+  \begin{exercise}[label = (\alph*), ref = \arabic{exercisei} (\alph*)]
   \item
     Show that the Laplace transform \(F(s) = \mathcal{L}\{f(t)\}(s)\) converges
     absolutely (and hence converges) for any \(s\) satisfying \(\Re\{s\} > 0\).
@@ -247,47 +247,200 @@ where we require that \(\Re\{s\} > 2\).
       \(\sigma,\omega\in\mathbb{R}\).
       Then \(\lvert e^{-st}\rvert = e^{t\sigma}\lvert e^{-it\omega}\rvert\)
       since
-      \(\lvert e^{-t\sigma}\rvert = \sqrt{e^{t^2\sigma^2}} = e^{t\sigma}\).
+      \(\lvert e^{-t\sigma}\rvert = \sqrt{e^{-2t\sigma}} = e^{-t\sigma}\).
       Recall the trigonometric identity
       \(e^{i\theta} = \cos(\theta) + i\sin(\theta)\).
       Then \(\lvert e^{-it\omega}\rvert = \sqrt{\Re\{e^{-it\omega}\}^2 +
       \Im\{e^{-it\omega}\}^2} = 1\).}
-                             & = M\int_0^{\infty}e^{t\sigma}dt\eqnumtag
+                             & = M\int_0^{\infty}e^{-t\sigma}dt\eqnumtag
                                \label{ch1sec2prob1a}
     \end{align*}
-    \Cref{ch1sec2prob1a} converges when \(e^{t\sigma}\) is bounded.
-    That is, \(t\sigma < 0\).
-    From \cref{ch1sec2prob1aLT}, we see that boundedness occurs when
-    \(-st < 0\) so \(st > 0\).
-    Then \(-s < 0 \iff s > 0 \iff \Re\{s\} > 0\) where
-    \(\Re\{s\} = \sigma\) since, by \cref{ch1sec2prob1a}, boundedness was due
-    to \(\sigma\).
+    \Cref{ch1sec2prob1a} converges when \(e^{-t\sigma}\) is bounded.
+    That is, \(-t\sigma < 0\iff t\sigma > 0\iff \sigma > 0\) since
+    \(t\in(0,\infty)\) so dividing out by \(t\) doesn't effect the inequality.
+    Recall that \(s = \sigma + i\omega\) so
+    \(\sigma > 0\Rightarrow\Re\{s\} > 0\) in order for \cref{ch1sec2prob1aLT}
+    to converge.
   \item
-    Show that \(\mathcal{L}\{f(t)\}\) converges uniformly if
-    \(\Re\{s\} > x_0 > 0\).
+    Show that \(\mathcal{L}\{f(t)\}(s)\) converges uniformly if
+    \(\Re\{s\} > a > 0\).
+    \par\smallskip
+    Let \(\mathcal{L}\{f(t)\}(s) = F(s)\).
+    If the Laplace transform converges uniformly, then for \(\Re\{s\} > b\) and
+    for \(b > a\),
+    \[
+    \sup_{s\geq b}\lvert F_R(s) - F(s)\rvert\to 0
+    \]
+    as \(R\to\infty\) for each \(b > a\).
+    Let \(F_R(s) = \int_0^Rf(t)e^{-st}dt\).
+    Suppose \(f(t)\) has exponential order; that is,
+    \(\lvert f(t)\rvert = Me^{at}\).
+    Then
+    \begin{align*}
+      \lvert F_R(s) - F(s)\rvert
+      & = \biggl\lvert\int_R^{\infty}f(t)e^{-st}dt\biggr\rvert\\
+      & \leq \int_R^{\infty}\lvert f(t)\rvert e^{-t\sigma}dt\\
+      & \leq M\int_R^{\infty}e^{-t(\sigma - a)}dt\eqnumtag
+        \label{ch1sec2prob1b}\\
+      & = \frac{M}{\sigma - a}e^{-R(\sigma - a)}
+    \end{align*}
+    Now for \(\Re\{s\}\geq b > a\),
+    \[
+    \sup_{\Re\{s\}\geq b}\lvert F_R(s) - F(s)\rvert\leq
+    \frac{Me^{-R(b - a)}}{b - a}\to 0
+    \]
+    as \(R\to\infty\).
+    Thus, \(\mathcal{L}\{f(t)\}(s)\) converges uniformly for \(\Re\{s\} > a\).
   \item
+    \label{ch1sec2prob1c}
     Show that \(F(s) = \mathcal{L}\{f(t)\}(s)\to 0\) as \(\Re\{s\}\to\infty\).
+    \par\smallskip
+    From \cref{ch1sec2prob1b}, we have
+    \[
+    \lvert F(s)\rvert\leq\frac{Me^{-R(\Re\{s\} - a)}}{\Re\{s\} - a}
+    \]
+    Now \(R\in(0,\infty)\) so \(R > 0\) and \(\Re\{s\} > a > 0\) so
+    \(\Re\{s\} - a > 0\).
+    \begin{align*}
+      \lim_{\Re\{s\}\to\infty}\frac{Me^{-R(\Re\{s\} - a)}}{\Re\{s\} - a}
+      & = \frac{M}{e^{\infty}\infty}\\
+      & = \frac{M}{\infty}\\
+      F(s) & \to 0
+    \end{align*}
+    as \(\Re\{s\}\to\infty\).
   \end{exercise}
 \item
   Let \(f(t) = e^t\) on \([0,\infty)\).
-  \begin{exercise}[label = (\alph*)]
+  \begin{exercise}[label = (\alph*), ref = \arabic{exercisei} (\alph*)]
   \item
     Show that \(F(s) = \mathcal{L}\{e^t\}(s)\) converges for \(\Re\{s\} > 1\).
+    \begin{align*}
+      \biggl\lvert\int_0^{\infty}e^te^{-st}dt\biggr\rvert
+      & \leq \int_0^{\infty}e^{-t(\sigma - 1)}dt\\
+      & = \frac{-e^{-t(\sigma - 1)}}{\sigma - 1}\biggr|_0^{\infty}
+    \end{align*}
+    In order for convergence, \(-t(\sigma - 1) < 0\iff\sigma > 1\).
+    Since \(s = \sigma + i\omega\), we have that \(F(s)\) converges absolutely
+    when \(\sigma = \Re\{s\} > 1\).
   \item
     Show that \(\mathcal{L}\{e^t\}(s)\) converges uniformly if
-    \(\Re\{s\} > x_0 > 1\).
+    \(\Re\{s\} > a > 1\).
+    \begin{align*}
+      \lvert F_R(s) - F(s)\rvert
+      & = \biggl\lvert\int_R^{\infty}e^te^{-st}dt\biggr\rvert\\
+      & \leq \int_R^{\infty}e^{-t(\sigma - 1)}dt\\
+      & = \frac{e^{-R(\sigma - 1)}}{\sigma - 1}
+    \end{align*}
+    For \(\Re\{s\}\geq b > 1 > 0\),
+    \[
+    \sup_{\Re\{s\}\geq b}\lvert F_R(s) - F(s)\rvert\leq
+    \frac{e^{-R(b - 1)}}{b - 1}\to 0
+    \]
+    as \(R\to\infty\) since \(b > 1 > 0\iff b - 1 > 0\iff b > 1\).
+    Therefore, \(\mathcal{L}\{e^t\}(s)\) converges uniformly when
+    \(\Re\{s\} > 1\).
   \item
     Show that \(F(s) = \mathcal{L}\{e^t\}(s)\to 0\) as \(\Re\{s\}\to\infty\).
+    \par\smallskip
+    This follows by the same reasoning of \cref{ch1sec2prob1c} with nothing
+    new to gain from repeating the process.
   \end{exercise}
 \item
-  Show that the Lpalace transform of the function \(f(t) = 1/t\), \(t > 0\)
+  Show that the Laplace transform of the function \(f(t) = 1/t\), \(t > 0\)
   does not exist for any value of \(s\).
+  \par\smallskip
+  Note the well known gamma function,
+  \(\Gamma(t) = \int_0^{\infty}x^{t - 1}e^{-x}dx\).
+  Now, the Laplace transform of \(f(t)\) is
+  \[
+  \mathcal{L}\{1/t\}(s) = \int_0^{\infty}\frac{e^{-st}}{t}dt
+  \]
+  Let \(st = u\).
+  Then \(du = sdt\) and \(1/t = s/u\).
+  After making these substitutions, we have
+  \[
+  \int_0^{\infty}\frac{e^{-st}}{t}dt = s^2\int_0^{\infty}u^{-1}e^{-u}du =
+  \Gamma(0)\eqnumtag\label{ch1sec2prob3}
+  \]
+  By Euler's reflection formula,
+  \(\Gamma(z)\Gamma(1 - z) = \frac{\pi}{\sin(z\pi)}\).
+  Using Euler's reflection formula and \cref{ch1sec2prob3}, we have that
+  \[
+  \Gamma(0) = \lim_{z\to 0}\frac{\pi}{\Gamma(1)\sin(z\pi)}
+  \]
+  For \(n\) a positive integer, \(\Gamma(n) = (n - 1)!\) so \(\Gamma(1) = 1\).
+  \[
+  \Gamma(0) = \lim_{z\to 0}\frac{\pi}{\sin(z\pi)} = \infty =
+  \int_0^{\infty}\frac{e^{-st}}{t}dt = \mathcal{L}\{1/t\}(s)
+  \]
+  Therefore, the Laplace transform does not converge for \(f(t) = 1/t\).
 \end{exercise}
 
 \section{Continuity Requirements}
 
+Discuss the continuity of each of the following functions and locate any jump
+discontinuities.
 \begin{exercise}
-  \item
+\item
+  \(f(t) = \frac{1}{1 + t}\)
+  \par\smallskip
+  The function \(f(t)\) is continuous for \(t\in\mathbb{R}\setminus\{-1\}\).
+  Next, we need to determine what type of discontinuity we have \(t_c = -1\).
+  \begin{align*}
+    \lim_{t\to -1^-}\frac{1}{1 + t} & = -\infty\\
+    \lim_{t\to -1^+}\frac{1}{1 + t} & = \infty
+  \end{align*}
+  Therefore, \(f(t_c^-)\neq f(t_c^+)\) and neither are finite so we dont have
+  jump or removable discontinuity.
+\item
+  \(g(t) = t\sin(1/t)\) for \(t\neq 0\).
+  \par\smallskip
+  We need to determine what happens when \(t = 0\).
+  Now, sine is bounded by \(\pm 1\); that is, \(-1\leq\sin(1/t)\leq 1\) so
+  \(-t\leq t\sin(1/t)\leq t\).
+  Since
+  \[
+  \lim_{t\to 0}-t = \lim_{t\to 0}t = 0,
+  \]
+  by the squeeze theorem, \(\lim_{t\to 0}t\sin(1/t) = 0\).
+  Thus, the left and right limits exists, are finite, and the same so we
+  dont have a jump discontinuity at \(t = 0\).
+\item
+  \(h(t) =
+  \begin{cases}
+    t, & t\leq 1\\
+    \frac{1}{1 + t^2}, & t > 1
+  \end{cases}\)
+  \par\smallskip
+  The only value we need to check is when \(t = 1\) since
+  \(t = \pm i\not\in\mathbb{R}\).
+  Then \(\lim_{t\to 1^-}h(t) = 1\) and \(\lim_{t\to 1^+}h(t) = 1/2\).
+  Therefore, we the left right limits exists, finite, and not equal so we have
+  a jump discontinuity at \(t = 1\).
+\item
+  \(i(t) =
+  \begin{cases}
+    \frac{\sinh(t)}{t}, & t\neq 0\\
+    1, & t = 0
+  \end{cases}\)
+\item
+  \(j(t) = \frac{1}{t}\sinh(1/t)\) for \(t\neq 0\).
+\item
+  \(k(t) =
+  \begin{cases}
+    \frac{1 - e^{-t}}{t}, & t\neq 0\\
+    0, & t = 0
+  \end{cases}\)
+\item
+  \(l(t) =
+  \begin{cases}
+    1, & 2na\leq t < (2n + 1)a\\
+    -1, & (2n + 1)a\leq t < (2n + 2)a
+  \end{cases}\)
+  for \(a > 0\) and \(n = 0,1,\ldots\).
+\item
+  \(m(t) = \bigl\lfloor\frac{t}{a}\bigr\rfloor\) for \(t\geq 0\), \(a > 0\)
+  where \(\lfloor x\rfloor\) is the greatest integer \(\leq x\). 
 \end{exercise}
 %%% Local Variables:
 %%% mode: latex
